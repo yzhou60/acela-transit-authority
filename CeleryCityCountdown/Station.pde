@@ -1,7 +1,7 @@
 class Station {
   private int x;
   private int y;
-  private boolean isTransfer; //is it an interchange
+  private boolean isTransfer; //is it an interchange; might not be needed: just set up 2 station dots, 1 for each line.
   //private boolean isLocal; //for later: isFast trains skip isLocal stations
   
   public Station(int x, int y, boolean isTransfer) {
