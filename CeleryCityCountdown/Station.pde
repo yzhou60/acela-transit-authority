@@ -4,7 +4,7 @@ class Station {
   private boolean isTransfer; //is it an interchange
   //private boolean isLocal; //for later: isFast trains skip isLocal stations
   
-  public Station(in x, int y, boolean isTransfer) {
+  public Station(int x, int y, boolean isTransfer) {
     this.x = x;
     this.y = y;
     this.isTransfer = isTransfer;
@@ -21,4 +21,5 @@ class Station {
   
   //draw station
   public void display() {
-    
+  }
+}
