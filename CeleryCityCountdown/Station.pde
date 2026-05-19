@@ -2,6 +2,7 @@ class Station {
   private int x;
   private int y;
   private boolean isTransfer; //is it an interchange
+  //private boolean isLocal; //for later: isFast trains skip isLocal stations
   
   public Station(in x, int y, boolean isTransfer) {
     this.x = x;
