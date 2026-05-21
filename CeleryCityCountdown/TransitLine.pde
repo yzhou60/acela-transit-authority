@@ -5,6 +5,6 @@ class TransitLine {
   public void drawLine() {
   }
   
-  public void addStation() {
-  }
+  public void addStation(Station s) {
+  stops.add(s);
 }
