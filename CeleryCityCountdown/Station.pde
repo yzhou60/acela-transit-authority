@@ -21,5 +21,14 @@ class Station {
   
   //draw station
   public void display() {
+    stroke(0);
+    strokeWeight(3);
+    if (isTransfer) {
+      fill(255);
+    }
+    else {
+      fill(0);
+    }
+    circle(x,y,15);
   }
 }
