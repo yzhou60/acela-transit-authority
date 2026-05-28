@@ -4,7 +4,7 @@ class Station {
   private int y;
   private boolean isTransfer;
   
-  //now constructor requires a name
+  //now the constructor requires a name
   public Station(String name, int x, int y, boolean isTransfer) {
     this.name = name;
     this.x = x;
@@ -33,7 +33,7 @@ class Station {
     //add station text name
     fill(0);
     textAlign(LEFT, BOTTOM);
-    textSize(12);
+    textSize(10);
     //offset off the station dot, appx
     text(name, x + 10, y - 10); 
   }
