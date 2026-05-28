@@ -4,7 +4,7 @@ class Train {
   private TransitLine route;
   private int targetIndex; 
   private float progress; 
-  private float speed = 0.02f; //train speed control by Central Dispatch :)
+  private float speed = 0.02f; //incrementalization of 0.02 distance between each stop
 
   public Train(TransitLine route) {
     this.route = route;
