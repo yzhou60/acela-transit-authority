@@ -25,15 +25,15 @@ void setup() {
   Station cherryPark = new Station("Cherry Park", 50, 300, false);
   //celeryStalk is shared here
   //grandJunction is shared here
-  Station metroParkEast = new Station("Metro Park East", 650, 300, true);
+  Station metroParkEast = new Station("Metro Park East", 650, 305, true);
   
   //orange line stations
   //lebJCourt is shared here
   Station latinDistrict = new Station("Latin District", 250, 250, true); 
-  Station patrumBoardway = new Station("Patrum Boardway", 350, 310, true);
-  Station grandJunction2 = new Station("Grand Junction", 450, 310, true);
+  Station patrumBoardway = new Station("Patrum Boardway", 350, 305, true);
+  //Station grandJunction2 = new Station("Grand Junction", 450, 310, true);
   Station hospital = new Station("Hospital", 550, 310, false); //local mid-stop
-  Station metroParkEast2 = new Station("Metro Park East", 650, 310, true);
+  //Station metroParkEast2 = new Station("Metro Park East", 650, 310, true);
   
   //light blue line stations
   Station ferreLatus = new Station("Ferre Latus", 350, 150, false);
@@ -64,9 +64,9 @@ void setup() {
   orangeLine.addStation(lebJCourt);
   orangeLine.addStation(latinDistrict);
   orangeLine.addStation(patrumBoardway);
-  orangeLine.addStation(grandJunction2);
+  orangeLine.addStation(grandJunction);
   orangeLine.addStation(hospital);
-  orangeLine.addStation(metroParkEast2);
+  orangeLine.addStation(metroParkEast);
   
   //light blue line assignments
   lightBlueLine.addStation(ferreLatus);
@@ -87,7 +87,7 @@ void setup() {
   allLines.add(lightBlueLine);
   allLines.add(pinkLine);
   
-  //spawn test trains so you can see the move() method working
+  //spawn test trains
   activeTrains.add(new Train(yellowLine));
   activeTrains.add(new Train(orangeLine));
   activeTrains.add(new Train(pinkLine));
@@ -104,8 +104,8 @@ void draw() {
     theLine.drawAllStations();
   }
   
-  for (Train t : activeTrains) {
-    t.move();
-    t.display();
+  for (Train train : activeTrains) {
+    train.move();
+    train.display();
   }
 }
