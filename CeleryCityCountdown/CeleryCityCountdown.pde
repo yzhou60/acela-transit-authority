@@ -40,7 +40,7 @@ void setup() {
   Station ferreLatus = new Station("Ferre Latus", 350, 150, false);
   Station hugeSt = new Station("Huge St", 350, 250, false);
   //patrumBoardway is shared here
-  Station tuffPlazaE = new Station("Tuff Plaza E", 350, 450, false);
+  Station tuffPlazaEast = new Station("Tuff Plaza East", 350, 450, false);
   
   //pink line stations
   Station richardian = new Station("Richardian", 250, 150, true);
@@ -58,6 +58,7 @@ void setup() {
   //yellow line assignments
   yellowLine.addStation(cherryPark);
   yellowLine.addStation(celeryStalk);
+  yellowLine.addStation(latinDistrict);
   yellowLine.addStation(grandJunction);
   yellowLine.addStation(metroParkEast);
   
@@ -73,7 +74,7 @@ void setup() {
   lightBlueLine.addStation(ferreLatus);
   lightBlueLine.addStation(hugeSt);
   lightBlueLine.addStation(patrumBoardway);
-  lightBlueLine.addStation(tuffPlazaE);
+  lightBlueLine.addStation(tuffPlazaEast);
   
   //pink line assignments
   pinkLine.addStation(richardian);
@@ -84,7 +85,7 @@ void setup() {
   //green line assignments
   greenLine.addStation(metroParkEast);
   greenLine.addStation(watersideCBD);
-  greenLine.addStation(tuffPlazaE);
+  greenLine.addStation(tuffPlazaEast);
   greenLine.addStation(tuffPlaza);
   
   //add lines to master list
@@ -101,21 +102,24 @@ void setup() {
   activeTrains.add(new Train(pinkLine));
   activeTrains.add(new Train(lightBlueLine));
   activeTrains.add(new Train(greenLine));
+  activeTrains.add(new Train(magentaLine));
 }
 
 void draw() {
   background(240);
   
+  //proper layering so station is the top layer; train is middle; and lines are the bottommost.
   for (TransitLine theLine : allLines) {
     theLine.drawLine();
-  }
-  
-  for (TransitLine theLine : allLines) {
-    theLine.drawAllStations();
   }
   
   for (Train train : activeTrains) {
     train.move();
     train.display();
   }
+  
+  for (TransitLine theLine : allLines) {
+    theLine.drawAllStations();
+  }
+
 }

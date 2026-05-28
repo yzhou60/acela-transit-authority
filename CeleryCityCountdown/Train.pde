@@ -29,7 +29,7 @@ class Train {
     currentX = lerp(previous.getX(), target.getX(), progress);
     currentY = lerp(previous.getY(), target.getY(), progress);
 
-    //needs to figure out how to stop at station.
+    //needs to figure out how to stop at station. To be debugged
     if (progress >= 1.0f) {
       progress = 0.0f; 
       targetIndex++; 
