@@ -4,7 +4,7 @@ class Station {
   private int y;
   private boolean isTransfer;
   
-  // Now constructor requires a name
+  //now constructor requires a name
   public Station(String name, int x, int y, boolean isTransfer) {
     this.name = name;
     this.x = x;

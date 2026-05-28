@@ -2,29 +2,47 @@ class Train {
   private float currentX;
   private float currentY;
   private TransitLine route;
-  //private boolean isFast; //maybe for implementation of local and exp trains
-  
-  public Train(TransitLine route, float startX, float startY) {
-    this.route = route;
-    this.currentX = startX;
-    this.currentY = startY;
-  }
-  
-  public void move() {
-    //for later
-    //Sample: float result = lerp(start, stop, amt); amount is the distance traveled (eg 0.1 means 10% of total distance_)
+  private int targetIndex; 
+  private float progress; 
+  private float speed = 0.02f; //train speed control by Central Dispatch :)
 
-    currentX = lerp(currentX, currentX+5, 0.05);
-    currentY = lerp(currentY, currentY+3, 0.05);
-    fill(0, 150, 255);
-    ellipse(currentX,currentY,50, 50);
+  public Train(TransitLine route) {
+    this.route = route;
+    Station start = route.getStops().get(0);
+    this.currentX = start.getX();
+    this.currentY = start.getY();
+    this.targetIndex = 1; 
+    this.progress = 0.0f;
   }
-  
+
+  public void move() {
+    //stops moving if it reaches the end of the line; preferably instaead stops at every stop; diagnosing
+    if (targetIndex >= route.getStops().size()) {
+      return; 
+    }
+    Station previous = route.getStops().get(targetIndex - 1);
+    Station target = route.getStops().get(targetIndex);
+
+    progress += speed;
+
+    //exact coords between 2 stations
+    currentX = lerp(previous.getX(), target.getX(), progress);
+    currentY = lerp(previous.getY(), target.getY(), progress);
+
+    //needs to figure out how to stop at station.
+    if (progress >= 1.0f) {
+      progress = 0.0f; 
+      targetIndex++; 
+      
+      currentX = target.getX();
+      currentY = target.getY();
+    }
+  }
+
   public void display() {
-    fill(255,0,0);
-    noStroke(); //no need for trains to have outlines
+    fill(255, 0, 0);
+    noStroke();
     rectMode(CENTER);
-    rect(currentX,currentY,20,10);
-    
+    rect(currentX, currentY, 20, 10);
   }
 }

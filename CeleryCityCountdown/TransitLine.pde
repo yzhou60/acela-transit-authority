@@ -7,6 +7,11 @@ class TransitLine {
     this.stops = new ArrayList<Station>();
   }
   
+  //getter
+  public ArrayList<Station> getStops() {
+    return stops;
+  }
+  
   public void drawLine() {
     if (stops.size() < 2) {
       return;
