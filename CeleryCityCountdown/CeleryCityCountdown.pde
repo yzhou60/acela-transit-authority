@@ -13,6 +13,7 @@ void setup() {
   TransitLine lightBlueLine = new TransitLine(color(173, 216, 230));
   TransitLine orangeLine = new TransitLine(color(255, 165, 0));
   TransitLine pinkLine = new TransitLine(color(255, 192, 203));
+  TransitLine greenLine = new TransitLine(color(34, 139, 34));
   
   //magenta line stations
   Station lebJCourt = new Station("Leb J. Court", 150, 150, true);
@@ -45,7 +46,7 @@ void setup() {
   Station richardian = new Station("Richardian", 250, 150, true);
   //latinDistrict is shared here
   //apateu is shared here
-  Station tuffPlaza = new Station("Tuff Plaza", 250, 450, false);
+  Station tuffPlaza = new Station("Tuff Plaza", 150, 450, false);
   
   //magenta line assignments
   magentaLine.addStation(lebJCourt);
@@ -80,17 +81,26 @@ void setup() {
   pinkLine.addStation(apateu);
   pinkLine.addStation(tuffPlaza);
   
+  //green line assignments
+  greenLine.addStation(metroParkEast);
+  greenLine.addStation(watersideCBD);
+  greenLine.addStation(tuffPlazaE);
+  greenLine.addStation(tuffPlaza);
+  
   //add lines to master list
   allLines.add(magentaLine);
   allLines.add(yellowLine); 
   allLines.add(orangeLine);
   allLines.add(lightBlueLine);
   allLines.add(pinkLine);
+  allLines.add(greenLine);
   
   //spawn test trains
   activeTrains.add(new Train(yellowLine));
   activeTrains.add(new Train(orangeLine));
   activeTrains.add(new Train(pinkLine));
+  activeTrains.add(new Train(lightBlueLine));
+  activeTrains.add(new Train(greenLine));
 }
 
 void draw() {
