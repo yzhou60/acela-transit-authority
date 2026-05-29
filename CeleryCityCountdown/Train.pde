@@ -7,13 +7,12 @@ class Train {
   private float speed = 0.02f; //I might do constant speed instead of 'constant time between each station' but ill see
   private int pauseTimer; //stop at station
   
-  //new variables for later:
-  //int trainColor;
-  //int passengerCount;
-  //int direction; (1 = forward; -1 = backward; does not really matter which is forward vs back)
+  //variables for advanced features:
+  private int trainColor;
+  private int passengerCount;
+  private int direction; //(1 = forward; -1 = backward; does not really matter which is forward vs back)
   //boolean isExpress;
-  //boolean movingForward; (for terminal turnaround)
-
+  
   public Train(TransitLine route) {
     this.route = route;
     Station start = route.getStops().get(0);
@@ -23,7 +22,15 @@ class Train {
     this.progress = 0.0f;
     this.pauseTimer = 60; //1-sec pause before leaving origin
   }
+  
+  //helpers
+  public void handleDwellTime() {
+  }
+  
+  public void reverseDirection() {
+  }
 
+  //move & display
   public void move() {
     //loop breaks when line reaches end of line
     if (targetIndex >= route.getStops().size()) {

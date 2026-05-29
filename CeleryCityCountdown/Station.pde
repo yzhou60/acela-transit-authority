@@ -4,8 +4,9 @@ class Station {
   private int y;
   private boolean isTransfer;
   
-  //new variables for later:
-  //int waitingPassengers;
+  //variables for advanced-features:
+  private boolean isHidden;
+  private int waitingPassengers;
   
   //now the constructor requires a name
   public Station(String name, int x, int y, boolean isTransfer) {
@@ -15,12 +16,25 @@ class Station {
     this.isTransfer = isTransfer;
   }
   
+  //overloaded constructor for turns and bends
+  public Station(boolean isHidden, String name, int x, int y) {
+    this.isHidden = isHidden;
+    this.name = name;
+    this.x = x;
+    this.y = y;
+  }
+  
   //getters
   public int getX() {
     return x;
   }
   public int getY() {
     return y;
+  }
+  
+  //helper
+  public boolean getIsHidden() {
+    return true; //edit later
   }
   
   //the display, updated w/ code to add station name as appropriate
