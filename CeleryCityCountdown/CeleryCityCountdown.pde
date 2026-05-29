@@ -96,7 +96,7 @@ void setup() {
   allLines.add(pinkLine);
   allLines.add(greenLine);
   
-  //spawn test trains
+  //spawn initial trains
   for (TransitLine theLine : allLines) {
     activeTrains.add(new Train(theLine));
   }
