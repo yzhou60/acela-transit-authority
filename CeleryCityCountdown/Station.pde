@@ -4,6 +4,9 @@ class Station {
   private int y;
   private boolean isTransfer;
   
+  //new variables for later:
+  //int waitingPassengers;
+  
   //now the constructor requires a name
   public Station(String name, int x, int y, boolean isTransfer) {
     this.name = name;

@@ -6,6 +6,12 @@ class Train {
   private float progress; //0->1 % of completion from previous to next station; debugging
   private float speed = 0.02f; //I might do constant speed instead of 'constant time between each station' but ill see
   private int pauseTimer; //stop at station
+  
+  //new variables for later:
+  //int trainColor;
+  //int passengerCount;
+  //int direction; (1 = forward; -1 = backward; does not really matter which is forward vs back)
+  //boolean isExpress;
 
   public Train(TransitLine route) {
     this.route = route;

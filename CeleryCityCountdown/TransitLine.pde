@@ -12,6 +12,8 @@ class TransitLine {
     return stops;
   }
   
+  //public int getLineColor() {
+  
   public void drawLine() {
     if (stops.size() < 2) {
       return;
