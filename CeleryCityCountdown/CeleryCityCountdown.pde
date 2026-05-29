@@ -97,17 +97,20 @@ void setup() {
   allLines.add(greenLine);
   
   //spawn test trains
-  activeTrains.add(new Train(yellowLine));
-  activeTrains.add(new Train(orangeLine));
-  activeTrains.add(new Train(pinkLine));
-  activeTrains.add(new Train(lightBlueLine));
-  activeTrains.add(new Train(greenLine));
-  activeTrains.add(new Train(magentaLine));
+  for (TransitLine theLine : allLines) {
+    activeTrains.add(new Train(theLine));
+  }
 }
 
 void draw() {
   background(240);
   
+  //Acela Transit Authority Continuous Frequency Metrorail (TM); new train every 3 seconds better than nyc!
+  if (frameCount % 180 == 0) { //180f = 3sec
+    for (TransitLine theLine : allLines) {
+      activeTrains.add(new Train(theLine));
+    }
+  }
   //proper layering so station is the top layer; train is middle; and lines are the bottommost.
   for (TransitLine theLine : allLines) {
     theLine.drawLine();

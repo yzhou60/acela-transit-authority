@@ -12,6 +12,7 @@ class Train {
   //int passengerCount;
   //int direction; (1 = forward; -1 = backward; does not really matter which is forward vs back)
   //boolean isExpress;
+  //boolean movingForward; (for terminal turnaround)
 
   public Train(TransitLine route) {
     this.route = route;
