@@ -13,7 +13,7 @@ class TransitLine {
   }
   
   public int getLineColor() {
-    return 0;
+    return lineColor;
   }
   
   //drawLine,drawAllStations,drawStation

@@ -21,6 +21,10 @@ class Train {
     this.targetIndex = 1; //starts at 1 (next station)
     this.progress = 0.0f;
     this.pauseTimer = 60; //1-sec pause before leaving origin
+    
+    //advanced features implmentation
+    this.direction = 1; //forward
+    this.trainColor = route.getLineColor();
   }
   
   //helpers
@@ -28,21 +32,18 @@ class Train {
   }
   
   public void reverseDirection() {
+    direction *= -1; //reversal logic
+    targetIndex += direction; //new next stop
   }
 
   //move & display
   public void move() {
-    //loop breaks when line reaches end of line
-    if (targetIndex >= route.getStops().size()) {
-      return; 
-    }
-    
     if (pauseTimer > 0) {
       pauseTimer--;
       return;
     }
     
-    Station previous = route.getStops().get(targetIndex - 1);
+    Station previous = route.getStops().get(targetIndex - direction);
     Station target = route.getStops().get(targetIndex);
     progress += speed; //0.02f; may change later
 
@@ -53,16 +54,26 @@ class Train {
     //if train arrived at station, its current coords are the exact station's to remove any accumulated floating rounding errors.
     if (progress >= 1.0f) {
       progress = 0.0f; 
-      targetIndex++; 
       currentX = target.getX();
       currentY = target.getY();
       
       pauseTimer = 60; ///after arrival have pause of 60 frames;
+      
+      //reversal logic at terminals
+      if (targetIndex == route.getStops().size() - 1 && direction == 1) {
+        reverseDirection();
+      }
+      else if (targetIndex == 0 && direction == -1) {
+        reverseDirection();
+      }
+      else {
+        targetIndex += direction;
+      }
     }
   }
 
   public void display() {
-    fill(255, 0, 0);
+    fill(trainColor); //now uses per-line colors intead of hardcoded red from earlier
     noStroke();
     rectMode(CENTER);
     rect(currentX, currentY, 20, 10);

@@ -32,9 +32,8 @@ class Station {
     return y;
   }
   
-  //helper
   public boolean getIsHidden() {
-    return true; //edit later
+    return isHidden;
   }
   
   //the display, updated w/ code to add station name as appropriate
