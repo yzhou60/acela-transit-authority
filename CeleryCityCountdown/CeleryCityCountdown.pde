@@ -1,6 +1,9 @@
 ArrayList<TransitLine> allLines;
 ArrayList<Train> activeTrains;
 
+//advanced-features: caps trains to prevent infinite spawning
+int maxTrainsPerLine = 3;
+
 void setup() {
   size(800, 600);
   
@@ -106,7 +109,7 @@ void draw() {
   background(240);
   
   //Acela Transit Authority Continuous Frequency Metrorail (TM); new train every 3 seconds better than nyc!
-  if (frameCount % 180 == 0) { //180f = 3sec
+  if (frameCount % 180 == 0 && activeTrains.size() < (maxTrainsPerLine * allLines.size())) { //180f = 3sec
     for (TransitLine theLine : allLines) {
       activeTrains.add(new Train(theLine));
     }
