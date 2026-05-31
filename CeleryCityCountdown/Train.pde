@@ -57,8 +57,10 @@ class Train {
       currentX = target.getX();
       currentY = target.getY();
       
-      pauseTimer = 60; ///after arrival have pause of 60 frames;
-      
+      //advanced features: will not stop at isHidden stations for obvious reasons
+      if (!target.getIsHidden()) {
+        pauseTimer = 60; ///after arrival have pause of 60 frames at non-bends;
+      }      
       //reversal logic at terminals
       if (targetIndex == route.getStops().size() - 1 && direction == 1) {
         reverseDirection();
@@ -75,7 +77,8 @@ class Train {
   public void display() {
     fill(trainColor); //now uses per-line colors intead of hardcoded red from earlier
     noStroke();
-    rectMode(CENTER);
-    rect(currentX, currentY, 20, 10);
+    
+    //update: use circles instead to maximize fluidity
+    circle(currentX, currentY, 25);
   }
 }
