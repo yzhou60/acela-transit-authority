@@ -37,6 +37,7 @@ class TransitLine {
   
   public void drawAllStations() {
     for (Station s : stops) {
+      s.generatePassengers(); //advanced-features
       s.display();
     }
   }

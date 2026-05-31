@@ -32,8 +32,34 @@ class Station {
     return y;
   }
   
+  //advanced-features: bends & passneger coutn
   public boolean getIsHidden() {
     return isHidden;
+  }
+  
+  public int getWaitingPassengers() {
+    return waitingPassengers;
+  }
+  
+  //setters: advanced-features
+  public void setWaitingPassengers(int amount) {
+    waitingPassengers = amount;
+  }
+  
+  public void generatePassengers() {
+    if (isHidden) {
+      return;
+    }
+    
+    int spawnRate = 200;
+    
+    if (name.equals("CeleryStalk") || name.equals("Waterside-CBD") || name.equals("Metro Park East")) {
+      spawnRate = 40;
+    }
+    
+    if (Math.random() * spawnRate < 1) {
+      waitingPassengers++;
+    }
   }
   
   //the display, updated w/ code to add station name as appropriate
@@ -56,6 +82,6 @@ class Station {
     textAlign(LEFT, BOTTOM);
     textSize(10);
     //offset off the station dot, appx
-    text(name, x + 10, y - 10); 
+    text(name + " (" + waitingPassengers + ")", x + 10, y - 10); //advanced-features: calculates pasenger count
   }
 }

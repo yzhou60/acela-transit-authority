@@ -23,7 +23,7 @@ void setup() {
   Station celeryStalk = new Station("Celery Stalk", 150, 300, true);
   Station apateu = new Station("Apateu", 250, 350, true);
   Station grandJunction = new Station("Grand Junction", 450, 300, true);
-  Station watersideCBD = new Station("Waterside-CBD", 600, 450, false);
+  Station watersideCBD = new Station("Waterside-CBD", 600, 450, true);
   
   //yellow line stations
   Station cherryPark = new Station("Cherry Park", 50, 300, false);
@@ -43,13 +43,15 @@ void setup() {
   Station ferreLatus = new Station("Ferre-Latus St", 350, 150, false);
   Station hugeSt = new Station("Huge St", 350, 200, false);
   //patrumBoardway is shared here
-  Station tuffPlazaEast = new Station("Tuff Plaza East", 350, 450, false);
+  Station tuffPlazaEast = new Station("Tuff Plaza East", 350, 450, true);
   
   //pink line stations
   Station richardian = new Station("Richardian", 250, 150, true);
   //latinDistrict is shared here
   //apateu is shared here
-  Station tuffPlaza = new Station("Tuff Plaza", 150, 450, false);
+  Station tuffPlaza = new Station("Tuff Plaza", 150, 450, true);
+  
+  //green line shares stations with every other line
   
   //advanced-features: bends
   Station magentaBend1 = new Station(true, "Hidden", 200, 350);
@@ -57,7 +59,7 @@ void setup() {
   Station sharedBend1 = new Station(true, "Hidden", 200, 250);
   Station magentaBend2 = new Station(true, "Hidden", 350, 350);
   Station magentaBend3 = new Station(true, "Hidden", 500, 350);
-  Station magentaBend4 = new Station(true, "Hidden", 500, 440);
+  Station magentaBend4 = new Station(true, "Hidden", 500, 450);
   Station pinkBend1 = new Station(true, "Hidden", 250, 400);
   Station greenBend1 = new Station(true, "Hidden", 650, 450);
   

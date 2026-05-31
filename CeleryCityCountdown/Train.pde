@@ -11,7 +11,6 @@ class Train {
   private int trainColor;
   private int passengerCount;
   private int direction; //(1 = forward; -1 = backward; does not really matter which is forward vs back)
-  //boolean isExpress;
   
   public Train(TransitLine route) {
     this.route = route;
@@ -60,8 +59,15 @@ class Train {
       //advanced features: will not stop at isHidden stations for obvious reasons
       if (!target.getIsHidden()) {
         pauseTimer = 60; ///after arrival have pause of 60 frames at non-bends;
+        
+        //advanced features: passenger count
+        int availableSpace = 50 - passengerCount; //max 50 pax per train
+        int boarding = Math.min(target.getWaitingPassengers(), availableSpace);
+        passengerCount += boarding;
+        target.setWaitingPassengers(target.getWaitingPassengers() - boarding);
       }      
-      //reversal logic at terminals
+      
+      //advanced-features: reversal logic at terminals
       if (targetIndex == route.getStops().size() - 1 && direction == 1) {
         reverseDirection();
       }
