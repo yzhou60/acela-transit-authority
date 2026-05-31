@@ -41,7 +41,7 @@ void setup() {
   
   //light blue line stations
   Station ferreLatus = new Station("Ferre-Latus St", 350, 150, false);
-  Station hugeSt = new Station("Huge St", 350, 250, false);
+  Station hugeSt = new Station("Huge St", 350, 200, false);
   //patrumBoardway is shared here
   Station tuffPlazaEast = new Station("Tuff Plaza East", 350, 450, false);
   
@@ -51,22 +51,40 @@ void setup() {
   //apateu is shared here
   Station tuffPlaza = new Station("Tuff Plaza", 150, 450, false);
   
+  //advanced-features: bends
+  Station magentaBend1 = new Station(true, "Hidden", 200, 350);
+  Station yellowBend2 = new Station(true, "Hidden", 350, 250);
+  Station sharedBend1 = new Station(true, "Hidden", 200, 250);
+  Station magentaBend2 = new Station(true, "Hidden", 350, 350);
+  Station magentaBend3 = new Station(true, "Hidden", 500, 350);
+  Station magentaBend4 = new Station(true, "Hidden", 500, 440);
+  Station pinkBend1 = new Station(true, "Hidden", 250, 400);
+  Station greenBend1 = new Station(true, "Hidden", 650, 450);
+  
+  
   //magenta line assignments
   magentaLine.addStation(lebJCourt);
   magentaLine.addStation(celeryStalk);
+  magentaLine.addStation(magentaBend1); //advanced features
   magentaLine.addStation(apateu);
+  magentaLine.addStation(magentaBend2); //advanced features
   magentaLine.addStation(grandJunction);
+  magentaLine.addStation(magentaBend3); //advanced features
+  magentaLine.addStation(magentaBend4); //advanced-features
   magentaLine.addStation(watersideCBD);
   
   //yellow line assignments
   yellowLine.addStation(cherryPark);
   yellowLine.addStation(celeryStalk);
+  yellowLine.addStation(sharedBend1); //advanced features
   yellowLine.addStation(latinDistrict);
+  yellowLine.addStation(yellowBend2); //advanced features
   yellowLine.addStation(grandJunction);
   yellowLine.addStation(metroParkEast);
   
   //orange line assignments
   orangeLine.addStation(lebJCourt);
+  orangeLine.addStation(sharedBend1); //advanced-features
   orangeLine.addStation(latinDistrict);
   orangeLine.addStation(patrumBoardway);
   orangeLine.addStation(grandJunction);
@@ -83,10 +101,12 @@ void setup() {
   pinkLine.addStation(richardian);
   pinkLine.addStation(latinDistrict);
   pinkLine.addStation(apateu);
+  pinkLine.addStation(pinkBend1); //advanced-features
   pinkLine.addStation(tuffPlaza);
   
   //green line assignments
   greenLine.addStation(metroParkEast);
+  greenLine.addStation(greenBend1); //advanced-features
   greenLine.addStation(watersideCBD);
   greenLine.addStation(tuffPlazaEast);
   greenLine.addStation(tuffPlaza);

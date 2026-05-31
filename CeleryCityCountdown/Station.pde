@@ -38,6 +38,11 @@ class Station {
   
   //the display, updated w/ code to add station name as appropriate
   public void display() {
+    //advanced-features: curves and bends
+    if (isHidden) {
+      return;
+    }
+    
     stroke(0); 
     strokeWeight(3);
     
