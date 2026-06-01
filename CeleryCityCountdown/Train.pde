@@ -69,9 +69,11 @@ class Train {
       
       //advanced-features: reversal logic at terminals
       if (targetIndex == route.getStops().size() - 1 && direction == 1) {
+        passengerCount = 0;
         reverseDirection();
       }
       else if (targetIndex == 0 && direction == -1) {
+        passengerCount = 0;
         reverseDirection();
       }
       else {

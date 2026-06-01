@@ -69,12 +69,15 @@ class Station {
       return;
     }
     
+    //station dot creation
     stroke(0); 
     strokeWeight(3);
-    
-    if (isTransfer) { fill(255); } 
-    else { fill(0); }
-    
+    if (isTransfer) {
+      fill(255);
+    } 
+    else {
+      fill(0);
+    }
     circle(x, y, 15); 
 
     //add station text name
